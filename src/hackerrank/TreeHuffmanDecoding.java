@@ -3,8 +3,8 @@ package hackerrank;
 import java.util.HashMap;
 class NodeY {
     public int frequency; // the frequency of this tree
-    public char data;
-    public Node left, right;
+    public Character data;
+    public NodeY left, right;
 }
 
 class Decoding{
