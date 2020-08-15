@@ -2,30 +2,29 @@ package hackerrank;
 
 public class StrangeCounter {
     static long strangeCounter(long t) {
-        int key=3;
-        long i=3;
-        while(t>1){
-            if(t>i){
-                t=t-i;
-                System.out.println("t in if "+t);
+        long c=3;
+        long k=3;
+        long i=t;
+        while (i>1) {
+            if(i>k){
+                i-=k;
+                k=0;
             }
             else{
-                while(i!=1 && t!=1){
-                    i--;
-                    t--;
-                    System.out.println("t in while "+t);
-                    System.out.println("i in while "+i);
-                }
-                t--;
+                k--;
+                i--;
             }
-            key*=2;
-            i=key;
+            if(k==0){
+                c=c*2;
+                k=c;
+            }
+
         }
-        return i;
+        return k;
     }
 
     public static void main(String[] args) {
-        System.out.println(strangeCounter(17));
+        System.out.println(strangeCounter(4));
     }
 
 }

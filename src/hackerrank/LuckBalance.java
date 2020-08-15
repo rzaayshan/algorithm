@@ -1,14 +1,20 @@
 package hackerrank;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class LuckBalance {
     static int luckBalance(int k, int[][] contests) {
-        if(k==0)
-            return Arrays.stream(contests).mapToInt(x->x[0]).sum();
-        int min = Arrays.stream(contests).filter(x->x[1]!=0).mapToInt(x -> x[0]).min().orElse(0);
-        return Arrays.stream(contests).mapToInt(x->x[0]).sum()-2*min;
+        int sum = Arrays.stream(contests).mapToInt(a->a[0]).sum();
+        List<Integer> imp = Arrays.stream(contests).filter(a -> a[1] == 1)
+                .map(a -> a[0])
+                .sorted()
+                .collect(Collectors.toList());
+        int minus = IntStream.range(0, imp.size()-k).map(i -> imp.get(i)).sum();
+        return (sum-2*minus);
+
 
     }
 
