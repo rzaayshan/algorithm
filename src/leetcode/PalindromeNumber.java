@@ -33,7 +33,5 @@ public class PalindromeNumber {
             rev = rev*10+r;
         }
         return org==rev;
-
-
     }
 }
